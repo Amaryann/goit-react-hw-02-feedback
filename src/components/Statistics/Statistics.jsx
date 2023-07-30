@@ -1,4 +1,5 @@
 import { Notification } from "./Notification"
+import PropTypes from 'prop-types';
 export const Statistics = ({state, setState}) => {
     if (Object.values(state).every(feedback=>feedback===0)){
         return (
@@ -15,3 +16,11 @@ export const Statistics = ({state, setState}) => {
         </div>
         )
 }
+Statistics.propTypes = {
+    state: PropTypes.shape({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number.isRequired,
+      bad: PropTypes.number.isRequired,
+    }).isRequired,
+    setState: PropTypes.func.isRequired,
+  };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Feedback } from "./Feedback/Feedback";
 import { Statistics } from "./Statistics/Statistics";
+import PropTypes from 'prop-types';
 export const App = () => {
   const [state, setState] = useState(
     {
@@ -8,7 +9,7 @@ export const App = () => {
       neutral: 0,
       bad: 0,
     }
-  ) 
+  )
   return (
     <div
       style={{
@@ -29,3 +30,11 @@ export const App = () => {
   );
 };
 
+App.propTypes = {
+  state: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }).isRequired,
+  setState: PropTypes.func.isRequired,
+};

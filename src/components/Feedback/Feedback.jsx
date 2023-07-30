@@ -1,4 +1,5 @@
 import css from "./Feedback.module.css"
+import PropTypes from 'prop-types';
 export const Feedback = ({state, setState}) => {
     const handleGoodFeedback = () => {
         setState((prevState)=>({
@@ -28,3 +29,11 @@ export const Feedback = ({state, setState}) => {
         </div>
     )
 }
+Feedback.propTypes = {
+    state: PropTypes.shape({
+      good: PropTypes.number.isRequired,
+      neutral: PropTypes.number.isRequired,
+      bad: PropTypes.number.isRequired,
+    }).isRequired,
+    setState: PropTypes.func.isRequired,
+  };
